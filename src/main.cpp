@@ -13,6 +13,7 @@
 #include "pen.h"
 #include "display.h"
 #include "sdcard.h"
+#include "api.h"
 #include "portalhtml.h"
 #include "phases/phasemanager.h"
 
@@ -178,6 +179,7 @@ void setup()
     Serial.println("Finished setting up the server");
 
     phaseManager = new PhaseManager(movement, pen, runner, &server, display);
+    registerApiRoutes(server, movement, runner, phaseManager);
 
     server.begin();
     Serial.println("Server started");

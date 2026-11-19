@@ -462,6 +462,20 @@ bool Movement::isMoving() {
     return moving;
 }
 
+bool Movement::isHomed() {
+    return homed;
+}
+
+void Movement::stopMotion() {
+    leftMotor->moveTo(leftMotor->currentPosition());
+    rightMotor->moveTo(rightMotor->currentPosition());
+    moving = false;
+    homed = false;
+    startedHoming = false;
+    X = -1;
+    Y = -1;
+}
+
 bool Movement::hasStartedHoming() {
     return startedHoming;
 }

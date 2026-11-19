@@ -122,6 +122,8 @@ public:
     }
 
     bool isMoving();
+    bool isHomed();
+    void stopMotion();
     bool hasStartedHoming();
     double getWidth();
     Point getCoordinates();

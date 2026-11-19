@@ -11,7 +11,7 @@ void BeginDrawingPhase::run(AsyncWebServerRequest *request) {
         speed = request->getParam("speed", true)->value().toInt();
         speed = max(300, min(3000, speed));
     }
-    runner->start(speed);
+    runner->requestStart(speed);
     request->send(200, "text/plain", "OK"); 
     server->end();
 }
